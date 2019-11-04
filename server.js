@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
-var mysql      = require('mysql');
+//var mysql = require('mysql');
 
 //let mainData;
 //let testData;
 
 const graduates = require('./assets/graduates.json')
-
+/*
 var connection = mysql.createConnection({
   host     : '31.22.113.24',
   user     : 'zosimaia_dbm',
@@ -23,7 +23,7 @@ connection.query('SELECT Name,Surname,YearOf,HomeAdCity_ID,Job_ID FROM graduates
     //testData=rows[0].Name;
     //mainData=rows;
 });
-
+*/
 app.all('/data', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
