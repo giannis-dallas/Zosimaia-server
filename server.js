@@ -5,7 +5,8 @@ var mysql      = require('mysql');
 
 
 let mainData;
-let testData;
+//let testData;
+const graduates = require('./assets/graduates.json')
 
 var connection = mysql.createConnection({
   host     : '31.22.113.24',
@@ -19,7 +20,7 @@ connection.query('SELECT Name,Surname,YearOf,HomeAdCity_ID,Job_ID FROM graduates
 
     console.log('Data received from Db:');
     console.log(rows[0].Name);
-    testData=rows[0].Name;
+    //testData=rows[0].Name;
     mainData=rows;
 });
 
@@ -30,7 +31,7 @@ app.all('/data', function(req, res, next) {
 });
 
 app.get('/', (req, res) => res.send('Hey there!') )
-app.get('/test', (req, res) => res.send('Random test! '+ testData) )
-app.get('/data', (req, res) => res.json(mainData) )
+//app.get('/test', (req, res) => res.send('Random test! '+ testData) )
+app.get('/data', (req, res) => res.json(graduates) )
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
