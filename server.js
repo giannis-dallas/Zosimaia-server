@@ -3,22 +3,22 @@ const app = express()
 const port = process.env.PORT || 3000
 var mysql      = require('mysql');
 
+
+let mainData;
+
 var connection = mysql.createConnection({
   host     : '31.22.113.24',
   user     : 'zosimaia_dbm',
   password : '#4m7l*%XPfGX',
   database : 'zosimaia_db'
 });
-
 connection.connect();
-
-//const graduates = require('./assets/graduates.json')
-
-connection.query('SELECT * FROM jobs', (err,rows) => {
+connection.query('SELECT Name,Surname,YearOf,HomeAdCity_ID,Job_ID FROM graduates', (err,rows) => {
     if(err){ console.log(err)};
 
     console.log('Data received from Db:');
     console.log(rows);
+    mainData=rows;
 });
 
 app.all('/data', function(req, res, next) {
@@ -28,6 +28,6 @@ app.all('/data', function(req, res, next) {
 });
 
 app.get('/', (req, res) => res.send('Hey there!') )
-app.get('/data', (req, res) => res.json(graduates) )
+app.get('/data', (req, res) => res.json(mainData) )
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
