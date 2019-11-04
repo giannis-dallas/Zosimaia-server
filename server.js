@@ -32,6 +32,6 @@ app.all('/data', function(req, res, next) {
 
 app.get('/', (req, res) => res.send('Hey there!') )
 //app.get('/test', (req, res) => res.send('Random test! '+ testData) )
-app.get('/data', (req, res) => res.json(graduates) )
+app.get('/data', (req, res) => res.json(mainData) )
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
