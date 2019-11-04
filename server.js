@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000
 var mysql      = require('mysql');
 
 
-let mainData;
+//let mainData;
 //let testData;
 const graduates = require('./assets/graduates.json')
 
@@ -21,7 +21,7 @@ connection.query('SELECT Name,Surname,YearOf,HomeAdCity_ID,Job_ID FROM graduates
     console.log('Data received from Db:');
     console.log(rows[0].Name);
     //testData=rows[0].Name;
-    mainData=rows;
+    //mainData=rows;
 });
 
 app.all('/data', function(req, res, next) {
