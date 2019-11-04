@@ -3,9 +3,9 @@ const app = express()
 const port = process.env.PORT || 3000
 var mysql      = require('mysql');
 
-
 //let mainData;
 //let testData;
+
 const graduates = require('./assets/graduates.json')
 
 var connection = mysql.createConnection({
