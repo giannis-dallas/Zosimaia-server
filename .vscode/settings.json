@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/c9b4b992-4597-487a-81ea-c1c0fcc9b1f1/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/zosimaia-backend",
+    "appService.deploySubpath": ""
+}
