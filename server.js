@@ -23,7 +23,6 @@ app.all('/data', function(req, res, next) {
 });
 
 app.get('/', (req, res) => res.send('Hey there!') )
-app.get('/test', (req, res) => res.send('Random test! '+ testData) )
 app.get('/data', (req, res) => {
 
   connection.query(`SELECT Name,Surname,YearOf,HomeAdCity_ID,Job_ID FROM graduates;
