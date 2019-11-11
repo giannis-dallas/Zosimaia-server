@@ -35,7 +35,7 @@ app.get('/data', (req, res) => {
         jobsData=rows[2];
         result = mainData.map( (graduate) => ({
               ...graduate,
-              momeCity: graduate.HomeAdCity_ID ? citiesData.find(city => city.id == graduate.HomeAdCity_ID).City_Name : '',
+              homeCity: graduate.HomeAdCity_ID ? citiesData.find(city => city.id == graduate.HomeAdCity_ID).City_Name : '',
               job : graduate.Job_ID ? jobsData.find(job => job.id == graduate.Job_ID).Name : ''
             })
           )
