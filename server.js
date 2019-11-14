@@ -25,7 +25,7 @@ app.all('/data', function(req, res, next) {
 app.get('/', (req, res) => res.send('Hey there!') )
 app.get('/data', (req, res) => {
 
-  connection.query(`SELECT Name,Surname,YearOf,HomeAdCity_ID,Job_ID FROM graduates;
+  connection.query(`SELECT * FROM graduates;
     SELECT id,City_Name FROM cities;
     SELECT id,Name FROM jobs`
     , (err,rows) => {
