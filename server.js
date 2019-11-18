@@ -30,7 +30,8 @@ app.get('/data', (req, res) => {
     SELECT id,Name FROM jobs`
     , (err,rows) => {
         if (err) throw err ;
-        mainData=rows[0];
+        let tempdata = JSON.stringify(rows[0], function(key, value) { return value == "NULL" ? "" : value });
+        mainData=JSON.parse(tempdata);
         citiesData=rows[1];
         jobsData=rows[2];
         result = mainData.map( (graduate) => ({
