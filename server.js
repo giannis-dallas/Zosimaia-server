@@ -60,15 +60,15 @@ app.get('/data', (req, res) => {
 app.get('/newdata', (req, res) => {
 
   newconnection.query(`SELECT * FROM graduates;
-    SELECT id,location_Name FROM locations;
-    SELECT id,job FROM jobs`
+    SELECT ID,location FROM locations;
+    SELECT ID,job FROM jobs`
     , (err,rows) => {
         if (err) throw err ;
         let tempdata = JSON.stringify(rows[0], function(key, value) { return value == "NULL" ? "" : value });
         mainData=JSON.parse(tempdata);
         locationsData=rows[1];
         jobsData=rows[2];
-        console.log(jobsData);
+        console.log(locationsData);
         result = mainData.map( (graduate) => ({
               ...graduate,
               // homeCity: graduate.HomeAdCity_ID ? citiesData.find(city => city.id == graduate.HomeAdCity_ID).City_Name : '',
