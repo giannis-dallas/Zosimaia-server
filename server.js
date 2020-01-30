@@ -59,7 +59,7 @@ app.get('/data', (req, res) => {
 
 app.get('/newdata', (req, res) => {
 
-  connection.query(`SELECT * FROM graduates;
+  newconnection.query(`SELECT * FROM graduates;
     SELECT id,location_Name FROM locations;
     SELECT id,job FROM jobs`
     , (err,rows) => {
