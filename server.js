@@ -14,7 +14,15 @@ const connection = mysql.createConnection({
   database : 'zosimaia_db',
   multipleStatements: true
 });
+const newconnection = mysql.createConnection({
+  host     : '31.22.113.24',
+  user     : 'zosimaia_dbm',
+  password : '#4m7l*%XPfGX',
+  database : 'zosimaia_data',
+  multipleStatements: true
+});
 connection.connect();
+newconnection.connect();
 
 app.all('/data', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -41,6 +49,32 @@ app.get('/data', (req, res) => {
               job : jobsData.find(job => job.id == graduate.Job_ID) ? jobsData.find(job => job.id == graduate.Job_ID).Name : '',
               workCity: graduate.WorkAdCity_ID ? citiesData.find(city => city.id == graduate.WorkAdCity_ID).City_Name : '',
               spouseJob : graduate.SpouseJob_ID ? jobsData.find(job => job.id == graduate.SpouseJob_ID).Name : '',
+            })
+          )
+    console.log(result);
+    res.json(result) 
+  })
+
+})
+
+app.get('/newdata', (req, res) => {
+
+  connection.query(`SELECT * FROM graduates;
+    SELECT id,location_Name FROM locations;
+    SELECT id,job FROM jobs`
+    , (err,rows) => {
+        if (err) throw err ;
+        let tempdata = JSON.stringify(rows[0], function(key, value) { return value == "NULL" ? "" : value });
+        mainData=JSON.parse(tempdata);
+        locationsData=rows[1];
+        jobsData=rows[2];
+        console.log(jobsData);
+        result = mainData.map( (graduate) => ({
+              ...graduate,
+              // homeCity: graduate.HomeAdCity_ID ? citiesData.find(city => city.id == graduate.HomeAdCity_ID).City_Name : '',
+              // job : jobsData.find(job => job.id == graduate.Job_ID) ? jobsData.find(job => job.id == graduate.Job_ID).Name : '',
+              // workCity: graduate.WorkAdCity_ID ? citiesData.find(city => city.id == graduate.WorkAdCity_ID).City_Name : '',
+              // spouseJob : graduate.SpouseJob_ID ? jobsData.find(job => job.id == graduate.SpouseJob_ID).Name : '',
             })
           )
     console.log(result);
