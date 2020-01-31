@@ -73,7 +73,7 @@ app.get('/newdata', (req, res) => {
               ...graduate,
               homeLocation: graduate.Locaton_ID ? locationsData.find(loc => loc.id == graduate.Locaton_ID).location : '',
               job : jobsData.find(job => job.id == graduate.Job_ID) ? jobsData.find(job => job.id == graduate.Job_ID).job : '',
-              spouseJob : graduate.SpouseJob_ID ? jobsData.find(job => job.id == graduate.SpouseJob_ID).job : '',
+              spouseJob : jobsData.find(job => job.id == graduate.SpouseJob_ID) ? jobsData.find(job => job.id == graduate.SpouseJob_ID).job : '',
             })
           )
     console.log(result);
