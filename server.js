@@ -49,7 +49,6 @@ app.get('/data', (req, res) => {
               job : jobsData.find(job => job.id == graduate.Job_ID) ? jobsData.find(job => job.id == graduate.Job_ID).Name : '',
               workCity: graduate.WorkAdCity_ID ? citiesData.find(city => city.id == graduate.WorkAdCity_ID).City_Name : '',
               spouseJob : graduate.SpouseJob_ID ? jobsData.find(job => job.id == graduate.SpouseJob_ID).Name : '',
-              test:'testdata',
             })
           )
     console.log(result[0]);
