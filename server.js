@@ -71,10 +71,9 @@ app.get('/newdata', (req, res) => {
         console.log(locationsData);
         result = mainData.map( (graduate) => ({
               ...graduate,
-              // homeCity: graduate.HomeAdCity_ID ? citiesData.find(city => city.id == graduate.HomeAdCity_ID).City_Name : '',
-              // job : jobsData.find(job => job.id == graduate.Job_ID) ? jobsData.find(job => job.id == graduate.Job_ID).Name : '',
-              // workCity: graduate.WorkAdCity_ID ? citiesData.find(city => city.id == graduate.WorkAdCity_ID).City_Name : '',
-              // spouseJob : graduate.SpouseJob_ID ? jobsData.find(job => job.id == graduate.SpouseJob_ID).Name : '',
+              homeLocation: graduate.Locaton_ID ? locationsData.find(loc => loc.id == graduate.Locaton_ID).location : '',
+              job : jobsData.find(job => job.id == graduate.Job_ID) ? jobsData.find(job => job.id == graduate.Job_ID).job : '',
+              spouseJob : graduate.SpouseJob_ID ? jobsData.find(job => job.id == graduate.SpouseJob_ID).job : '',
             })
           )
     console.log(result);
