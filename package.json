@@ -1,6 +1,6 @@
 {
   "name": "zosimaia-backend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Server for Zosimaia.gr",
   "scripts": {
     "server": "nodemon server.js",
