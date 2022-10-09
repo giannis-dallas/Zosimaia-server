@@ -23,7 +23,7 @@ app.all('/newdata', function(req, res, next) {
     next();
 });
 
-app.get('/', (req, res) => res.send('Hey there!') )
+app.get('/', (req, res) => res.send('Hey there Zosimaia!') )
 
 app.get('/newdata', (req, res) => {
 
