@@ -39,7 +39,7 @@ app.get('/newdata', (req, res) => {
         console.log(locationsData);
         result = mainData.map( (graduate) => ({
               ...graduate,
-              homeLocation: graduate.Location_ID ? locationsData.find(loc => loc.ID == graduate.Location_ID).location : '',
+              homeLocation: graduate.Location_ID ? locationsData.find(loc => loc.ID == graduate.Location_ID)?.location || '' : '',
               job : jobsData.find(job => job.ID == graduate.Job_ID) ? jobsData.find(job => job.ID == graduate.Job_ID).job : '',
               spouseJob : jobsData.find(job => job.ID == graduate.SpouseJob_ID) ? jobsData.find(job => job.ID == graduate.SpouseJob_ID).job : '',
             })
