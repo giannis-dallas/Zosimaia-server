@@ -8,7 +8,7 @@ let citiesData;
 let jobsData;
 
 const newconnection = mysql.createConnection({
-  host     : '31.22.113.24',
+  host     : '31.22.113.63',
   user     : 'zosimaia_dbm',
   password : '#4m7l*%XPfGX',
   database : 'zosimaia_data',
